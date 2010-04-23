@@ -3,6 +3,12 @@
 This software intends to offer a smart serial communication tool based on QT4 and the qextserial framework and it is under the GPLv2 license.
 
 
+== Compile ==
+
+Get the last version of the libqextserialport and a compiler environnement fot QT4
+
+ *  hg clone https://qextserialport.googlecode.com/hg/ qextserialport  --> for the qextserialportlibrary
+
 == ChangeLogs ==
 
  * V0.0.1.a : the base of the programm with the qextserial files.
