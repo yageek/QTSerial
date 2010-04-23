@@ -1,0 +1,9 @@
+= QT Serial =
+
+This software intends to offer a smart serial communication tool based on QT4 and the qextserial framework.
+
+
+== ChangeLogs ==
+
+ * V0.0.1.a : the base of the programm with the qextserial files.
+ 
