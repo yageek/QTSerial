@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SerialTool</class>
+ <widget class="QWidget" name="SerialTool">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>738</width>
+    <height>286</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Serial Tool</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/img/img/armadeus.png</normaloff>:/img/img/armadeus.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QComboBox" name="portBox">
+       <property name="editable">
+        <bool>true</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>/dev/ttyUSB0</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Refresh Port</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="openButton">
+       <property name="text">
+        <string>Open</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="closeButton">
+       <property name="text">
+        <string>Close</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="HexCheckBox">
+       <property name="text">
+        <string>Hex</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPlainTextEdit" name="terminal"/>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="commandEdit"/>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>openButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SerialTool</receiver>
+   <slot>openPort()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>253</x>
+     <y>27</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>125</x>
+     <y>42</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>closeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SerialTool</receiver>
+   <slot>closePort()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>495</x>
+     <y>29</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>287</x>
+     <y>39</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>commandEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>SerialTool</receiver>
+   <slot>writeCmd()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>103</x>
+     <y>250</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>12</x>
+     <y>244</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>openPort()</slot>
+  <slot>closePort()</slot>
+  <slot>writeCmd()</slot>
+  <slot>closeWindow()</slot>
+ </slots>
+</ui>
