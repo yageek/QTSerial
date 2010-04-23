@@ -5,6 +5,7 @@
 #include <qextserialport.h>
 #include "readserial.h"
 #include <QMutex>
+
 class SerialTool : public QWidget, private Ui::SerialTool {
     Q_OBJECT
 public:
@@ -14,6 +15,7 @@ public slots:
     void closePort();
     void printTerm(QByteArray);
     void writeCmd();
+    void RefreshPort();
 
 protected:
     void changeEvent(QEvent *e);

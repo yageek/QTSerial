@@ -3,6 +3,7 @@
 #include "readserial.h"
 #include<iostream>
 #include <QByteArrayMatcher>
+#include <qextserialenumerator.h>
 SerialTool::SerialTool(QWidget *parent) :
     QWidget(parent){
     setupUi(this);
@@ -14,13 +15,13 @@ SerialTool::SerialTool(QWidget *parent) :
     port->setParity(PAR_NONE);
     port->setDataBits(DATA_8);
     port->setStopBits(STOP_1);
-    port->setTimeout(0,10);
 
     //Terminal
 
 
-   // this->terminal->setStyleSheet("background-color:black;color:white");
-    this->terminal->setReadOnly(true);
+        this->terminal->setReadOnly(true);
+    //Refresh the list of ports
+        this->RefreshPort();
 
 
 
@@ -41,7 +42,7 @@ void SerialTool::changeEvent(QEvent *e)
 
 void SerialTool::openPort(){
 
-    QString portName = this->portBox->itemText(0);
+    QString portName = this->portBox->currentText();
     port->setPortName(portName);
 
     if( port->open(QIODevice::ReadWrite) < 1){
@@ -119,4 +120,16 @@ void SerialTool::writeCmd(){
 
 void SerialTool::closeEvent(QCloseEvent *event){
 if(port->isOpen())  this->closePort();
+}
+
+void SerialTool::RefreshPort(){
+this->portBox->clear();
+
+QList<QextPortInfo> ports = QextSerialEnumerator::getPorts();
+
+ for (int i = 0; i < ports.size(); i++) {
+    this->portBox->insertItem(i,ports.at(i).physName);
+ }
+
+
 }
