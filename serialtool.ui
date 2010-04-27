@@ -254,6 +254,11 @@
          <string>Software</string>
         </property>
        </item>
+       <item>
+        <property name="text">
+         <string>Space</string>
+        </property>
+       </item>
       </widget>
      </item>
     </layout>

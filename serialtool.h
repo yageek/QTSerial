@@ -21,6 +21,7 @@ public slots:
     void setTerminalText(const QString);
     void UpdateTerminalMode();
     void Configuration(bool actived);
+    PortSettings getConfiguration();
 
 protected:
     void changeEvent(QEvent *e);
