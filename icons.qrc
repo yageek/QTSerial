@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/mainbar" >
+        <file>icons/clear.png</file>
+        <file>icons/main.png</file>
+    </qresource>
+</RCC>
