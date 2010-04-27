@@ -25,7 +25,8 @@ Get the last version of the libqextserialport and a compiler environnement fot Q
  
  Compile a windows version of qextserial port, compile the .a or .dll from the buil ddirectory and paste it to the QTSerial directory.
  
- Change the name of the libraray at line 14 of the qtserial.pro files with the correct names of the library.
+ Change the name of the library at line 14 of the qtserial.pro files with the correct names of the library. Then you can compile the QTSerial software.
+
  
  
 
