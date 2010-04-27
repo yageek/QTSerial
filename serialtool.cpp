@@ -147,7 +147,12 @@ this->portBox->clear();
 QList<QextPortInfo> ports = QextSerialEnumerator::getPorts();
 
  for (int i = 0; i < ports.size(); i++) {
+
+#ifdef _TTY_POSIX_
     this->portBox->insertItem(i,ports.at(i).physName);
+#elif _TTY_WIN_
+    this->portBox->insertItem(i,ports.at(i).portName);
+#endif
  }
 
 
