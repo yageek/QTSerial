@@ -3,11 +3,32 @@
 This software intends to offer a smart serial communication tool based on QT4 and the qextserial framework and it is under the GPLv2 license.
 
 
-== Compile ==
+== Compile Linux ==
 
 Get the last version of the libqextserialport and a compiler environnement fot QT4
 
- *  hg clone https://qextserialport.googlecode.com/hg/ qextserialport  --> for the qextserialportlibrary
+ hg clone https://qextserialport.googlecode.com/hg/ qextserialport 
+ qmake
+ make
+ make install
+ 
+ 
+ Compile the qtserial software :
+ tar xzvf QTSerial_001.tar.gz
+ cd QTSerial
+ qmake
+ make
+ ./qtserial #to launch the software
+ 
+ 
+ == Compile Windows ==
+ 
+ Compile a windows version of qextserial port, compile the .a or .dll from the buil ddirectory and paste it to the QTSerial directory.
+ 
+ Change the name of the libraray at line 14 of the qtserial.pro files with the correct names of the library.
+ 
+ 
+
 
 == ChangeLogs ==
 
