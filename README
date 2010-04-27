@@ -12,4 +12,4 @@ Get the last version of the libqextserialport and a compiler environnement fot Q
 == ChangeLogs ==
 
  * V0.0.1.a : the base of the programm with the qextserial files.
- 
+ * V0.0.1 : the first release of the programm.  
