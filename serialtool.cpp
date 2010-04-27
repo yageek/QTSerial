@@ -56,6 +56,9 @@ void SerialTool::openPort(){
     else{
             this->openButton->setDisabled(true);
             this->closeButton->setDisabled(false);
+            /* Disable configuration button  */
+            this->Configuration(false);
+
             this->Rth = new ReadSerial(port,this);
             connect(this->Rth,SIGNAL(DataReady(QByteArray)),this,SLOT(printTerm(QByteArray)));
             Rth->start();
@@ -81,7 +84,7 @@ void SerialTool::setTerminalText(QString text){
 void SerialTool::closePort(){
            this->openButton->setDisabled(false);
             this->closeButton->setDisabled(true);
-
+            this->Configuration(true);
 
     port->close();
 
@@ -155,3 +158,13 @@ void SerialTool::ClearTerm(){
     this->getTerminalText()->clear();
 }
 
+
+void SerialTool::Configuration(bool actived){
+    this->baudrateComboBox->setEnabled(actived);
+    this->parityComboBox->setEnabled(actived);
+    this->flowcontrolComboBox->setEnabled(actived);
+    this->bitsCombobox->setEnabled(actived);
+    this->stopbitsCombobox->setEnabled(actived);
+
+
+}

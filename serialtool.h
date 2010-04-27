@@ -20,6 +20,7 @@ public slots:
     QString * getTerminalText();
     void setTerminalText(const QString);
     void UpdateTerminalMode();
+    void Configuration(bool actived);
 
 protected:
     void changeEvent(QEvent *e);
