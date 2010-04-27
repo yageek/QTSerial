@@ -6,8 +6,7 @@ TEMPLATE = app
 SOURCES += main.cpp \
     serialtool.cpp \
     readserial.cpp
-HEADERS += ui_serialtool.h \
-    serialtool.h \
+HEADERS += serialtool.h \
     readserial.h
 FORMS += serialtool.ui
 unix:LIBS += -lqextserialport
