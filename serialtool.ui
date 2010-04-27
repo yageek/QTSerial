@@ -10,12 +10,15 @@
     <height>286</height>
    </rect>
   </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
   <property name="windowTitle">
    <string>Serial Tool</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>:/img/img/armadeus.png</normaloff>:/img/img/armadeus.png</iconset>
+   <iconset resource="icons.qrc">
+    <normaloff>:/mainbar/icons/main.png</normaloff>:/mainbar/icons/main.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -54,7 +57,28 @@
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="HexCheckBox">
+      <widget class="QToolButton" name="clearTermButton">
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="icons.qrc">
+         <normaloff>:/mainbar/icons/clear.png</normaloff>:/mainbar/icons/clear.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="asciiRadio">
+       <property name="text">
+        <string>ASCII</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="hexRadio">
        <property name="text">
         <string>Hex</string>
        </property>
@@ -74,7 +98,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>openButton</sender>
@@ -83,8 +109,8 @@
    <slot>openPort()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>437</x>
-     <y>37</y>
+     <x>355</x>
+     <y>36</y>
     </hint>
     <hint type="destinationlabel">
      <x>125</x>
@@ -99,8 +125,8 @@
    <slot>closePort()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>495</x>
-     <y>29</y>
+     <x>470</x>
+     <y>36</y>
     </hint>
     <hint type="destinationlabel">
      <x>287</x>
@@ -140,6 +166,54 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>clearTermButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SerialTool</receiver>
+   <slot>ClearTerm()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>498</x>
+     <y>33</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>736</x>
+     <y>44</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>asciiRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SerialTool</receiver>
+   <slot>UpdateTerminalMode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>583</x>
+     <y>17</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>638</x>
+     <y>40</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hexRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SerialTool</receiver>
+   <slot>UpdateTerminalMode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>671</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>547</x>
+     <y>40</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>openPort()</slot>
@@ -147,5 +221,8 @@
   <slot>writeCmd()</slot>
   <slot>closeWindow()</slot>
   <slot>RefreshPort()</slot>
+  <slot>ClearTerm()</slot>
+  <slot>ConvertHex(int)</slot>
+  <slot>UpdateTerminalMode()</slot>
  </slots>
 </ui>

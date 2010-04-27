@@ -16,6 +16,10 @@ public slots:
     void printTerm(QByteArray);
     void writeCmd();
     void RefreshPort();
+    void ClearTerm();
+    QString * getTerminalText();
+    void setTerminalText(const QString);
+    void UpdateTerminalMode();
 
 protected:
     void changeEvent(QEvent *e);
@@ -24,6 +28,7 @@ protected:
     QextSerialPort *port;
     ReadSerial *Rth;
     QMutex mutex;
+    QString *terminaltext;
 };
 
 #endif // SERIALTOOL_H

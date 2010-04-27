@@ -10,6 +10,7 @@ HEADERS += ui_serialtool.h \
     serialtool.h \
     readserial.h
 FORMS += serialtool.ui
-LIBS+= -lqextserialport
+LIBS += -lqextserialport
 unix:DEFINES = _TTY_POSIX_
-win32:DEFINES = _TTY_WIN_ \
+win32:DEFINES = _TTY_WIN_
+RESOURCES += icons.qrc

@@ -17,12 +17,12 @@ SerialTool::SerialTool(QWidget *parent) :
     port->setStopBits(STOP_1);
 
     //Terminal
-
-
         this->terminal->setReadOnly(true);
+
     //Refresh the list of ports
         this->RefreshPort();
-
+    //Initialise the terminal text
+        this->terminaltext = new QString();
 
 
 
@@ -65,6 +65,18 @@ void SerialTool::openPort(){
         }
 }
 
+QString *SerialTool::getTerminalText(){
+
+    return this->terminaltext;
+
+}
+
+void SerialTool::setTerminalText(QString text){
+
+    this->terminaltext->clear();
+    this->terminaltext->append(text);
+
+}
 
 void SerialTool::closePort(){
            this->openButton->setDisabled(false);
@@ -79,37 +91,41 @@ void SerialTool::closePort(){
 
 }
 
+
+
+void SerialTool::UpdateTerminalMode(){
+
+    if((this->asciiRadio->isChecked()) && !(this->hexRadio->isChecked())) this->terminal->setPlainText(*(this->getTerminalText()));
+
+
+             else if(!(this->asciiRadio->isChecked()) && (this->hexRadio->isChecked())){
+
+                     QString Hex;
+                     for (int i = 0; i < this->getTerminalText()->size();i++){
+
+
+                         Hex.append(QString("0x%1   ").arg(this->getTerminalText()->at(i).toAscii(),0,16));
+                         this->terminal->setPlainText(Hex);
+
+                     }
+
+
+}
+
+             this->terminal->ensureCursorVisible();
+   }
+
 void SerialTool::printTerm(QByteArray data){
 
-
-
-
-    QString mesg;
-
-
-    if(this->HexCheckBox->isChecked() == true){
-        for(int i=0;i<data.size();i++){
-
-               mesg.append(QString("0x%1  ").arg((char) data.at(i),(int) 0, (int) 16));
-
-
-        }
-
-
-
-    } else mesg.append(data);
-
-    std::cout << mesg.toStdString() << std::endl;
-
-    this->terminal->insertPlainText(mesg);
-    this->terminal->ensureCursorVisible();
+/*Set data received in the class argumen */
+   this->getTerminalText()->append(data);
+    this->UpdateTerminalMode();
 
 
 }
 
 void SerialTool::writeCmd(){
     QString cmd = this->commandEdit->text();
-    if(this->HexCheckBox->isChecked() == false) cmd.append("\n");
 
     mutex.lock();
     this->port->write(cmd.toAscii(),cmd.length());
@@ -133,3 +149,9 @@ QList<QextPortInfo> ports = QextSerialEnumerator::getPorts();
 
 
 }
+
+void SerialTool::ClearTerm(){
+    this->terminal->clear();
+    this->getTerminalText()->clear();
+}
+
