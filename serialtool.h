@@ -5,7 +5,7 @@
 #include <qextserialport.h>
 #include "readserial.h"
 #include <QMutex>
-
+#include<serialraw.h>
 class SerialTool : public QWidget, private Ui::SerialTool {
     Q_OBJECT
 public:
@@ -18,8 +18,8 @@ public slots:
     void writeCmd();
     void RefreshPort();
     void ClearTerm();
-    QString * getTerminalText();
-    void setTerminalText(const QString);
+
+
     void UpdateTerminalMode();
     void Configuration(bool actived);
     PortSettings getConfiguration();
@@ -31,7 +31,7 @@ protected:
     QextSerialPort *port;
     ReadSerial *Rth;
     QMutex mutex;
-    QString *terminaltext;
+    SerialRaw *serialraw;
 };
 
 #endif // SERIALTOOL_H

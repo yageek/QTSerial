@@ -4,12 +4,14 @@
 #include<iostream>
 #include <QByteArrayMatcher>
 #include <qextserialenumerator.h>
+
 SerialTool::SerialTool(QWidget *parent) :
     QWidget(parent){
     setupUi(this);
 
     this->closeButton->setDisabled(true);
     this->port = new QextSerialPort();
+    this->serialraw = new SerialRaw();
 
 
     //Terminal
@@ -18,7 +20,7 @@ SerialTool::SerialTool(QWidget *parent) :
     //Refresh the list of ports
         this->RefreshPort();
     //Initialise the terminal text
-        this->terminaltext = new QString();
+
 
 
 
@@ -74,18 +76,7 @@ void SerialTool::openPort(){
         }
 }
 
-QString *SerialTool::getTerminalText(){
 
-    return this->terminaltext;
-
-}
-
-void SerialTool::setTerminalText(QString text){
-
-    this->terminaltext->clear();
-    this->terminaltext->append(text);
-
-}
 
 void SerialTool::closePort(){
 
@@ -105,16 +96,16 @@ void SerialTool::closePort(){
 
 void SerialTool::UpdateTerminalMode(){
 
-    if((this->asciiRadio->isChecked()) && !(this->hexRadio->isChecked())) this->terminal->setPlainText(*(this->getTerminalText()));
+    if((this->asciiRadio->isChecked()) && !(this->hexRadio->isChecked())) this->terminal->setPlainText(this->serialraw->getResult());
 
 
              else if(!(this->asciiRadio->isChecked()) && (this->hexRadio->isChecked())){
 
                      QString Hex;
-                     for (int i = 0; i < this->getTerminalText()->size();i++){
+                     for (int i = 0; i < this->serialraw->getResult().size();i++){
 
 
-                         Hex.append(QString("0x%1   ").arg(this->getTerminalText()->at(i).toAscii(),0,16));
+                         Hex.append(QString("0x%1   ").arg(this->serialraw->getResult().at(i).toAscii(),0,16));
                          this->terminal->setPlainText(Hex);
 
                      }
@@ -126,10 +117,10 @@ void SerialTool::UpdateTerminalMode(){
    }
 
 void SerialTool::printTerm(QByteArray data){
+this->serialraw->insertData(data);
 
 /*Set data received in the class argumen */
-   this->getTerminalText()->append(data);
-    this->UpdateTerminalMode();
+   this->UpdateTerminalMode();
 
 
 }
@@ -168,7 +159,7 @@ QList<QextPortInfo> ports = QextSerialEnumerator::getPorts();
 
 void SerialTool::ClearTerm(){
     this->terminal->clear();
-    this->getTerminalText()->clear();
+    this->serialraw->Clearbuffer();
 }
 
 
@@ -237,3 +228,5 @@ PortSettings SerialTool::getConfiguration(){
 
     return settings;
 }
+
+
