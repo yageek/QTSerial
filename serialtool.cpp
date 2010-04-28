@@ -96,10 +96,10 @@ void SerialTool::closePort(){
 
 void SerialTool::UpdateTerminalMode(){
 
-    if((this->asciiRadio->isChecked()) && !(this->hexRadio->isChecked())) this->terminal->setPlainText(this->serialraw->getResult());
+    if((this->asciiRadio->isChecked()) || (this->terminalmodeRadio->isChecked())) this->terminal->setPlainText(this->serialraw->getResult());
 
 
-             else if(!(this->asciiRadio->isChecked()) && (this->hexRadio->isChecked())){
+             else if(this->hexRadio->isChecked()){
 
                      QString Hex;
                      for (int i = 0; i < this->serialraw->getResult().size();i++){
@@ -113,7 +113,7 @@ void SerialTool::UpdateTerminalMode(){
 
 }
 
-             this->terminal->ensureCursorVisible();
+
    }
 
 void SerialTool::printTerm(QByteArray data){
@@ -121,12 +121,14 @@ this->serialraw->insertData(data);
 
 /*Set data received in the class argumen */
    this->UpdateTerminalMode();
-
+   this->terminal->moveCursor(QTextCursor::End);
+   this->terminal->ensureCursorVisible();
 
 }
 
 void SerialTool::writeCmd(){
     QString cmd = this->commandEdit->text();
+    if(this->terminalmodeRadio->isChecked()) cmd.append('\n');
 
     mutex.lock();
     this->port->write(cmd.toAscii(),cmd.length());
@@ -190,6 +192,7 @@ PortSettings SerialTool::getConfiguration(){
     case 19200: settings.BaudRate = BAUD19200; break;
     case 38400: settings.BaudRate = BAUD38400; break;
     case 57600: settings.BaudRate = BAUD57600;break;
+    case 115200: settings.BaudRate = BAUD115200;break;
 
 
 
