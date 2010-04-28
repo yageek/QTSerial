@@ -4,12 +4,13 @@
 #include <QObject>
 #include<QString>
 #include<QByteArray>
-
-class SerialRaw : public QObject
+#include<QThread>
+#include<QMutex>
+class SerialRaw : public QThread
 {
     Q_OBJECT
 public:
-    SerialRaw();
+    SerialRaw(QObject *parent=0);
     QByteArray* getBuff();
 
 public slots:
@@ -19,7 +20,9 @@ public slots:
 
 private:
     QByteArray *buff;
-
+    QMutex mutex;
+protected:
+    void run();
 
 
 };

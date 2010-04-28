@@ -1,6 +1,6 @@
 #include "serialraw.h"
 
-SerialRaw::SerialRaw()
+SerialRaw::SerialRaw(QObject *parent):QThread(parent)
 {
     /*Allocate the QByteArray*/
     this->buff = new QByteArray();
@@ -39,5 +39,10 @@ return QString(*(this->getBuff()));
 void SerialRaw::Clearbuffer(){
 
  this->buff->clear();
+
+}
+void SerialRaw::run(){
+
+
 
 }
