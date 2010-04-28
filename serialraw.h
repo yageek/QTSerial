@@ -6,6 +6,7 @@
 #include<QByteArray>
 #include<QThread>
 #include<QMutex>
+#include<QPlainTextEdit>
 class SerialRaw : public QThread
 {
     Q_OBJECT
@@ -17,10 +18,12 @@ public slots:
     void insertData(QByteArray data );
     QString getResult();
     void Clearbuffer();
+    void Stop();
 
 private:
     QByteArray *buff;
-    QMutex mutex;
+    QPlainTextEdit *text;
+    bool continuer;
 protected:
     void run();
 

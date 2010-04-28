@@ -4,6 +4,7 @@ SerialRaw::SerialRaw(QObject *parent):QThread(parent)
 {
     /*Allocate the QByteArray*/
     this->buff = new QByteArray();
+    this->continuer = true;
 
 }
 
@@ -43,6 +44,17 @@ void SerialRaw::Clearbuffer(){
 }
 void SerialRaw::run(){
 
+    while(continuer){
 
 
+
+    }
+
+
+
+
+}
+void SerialRaw::Stop(){
+
+this->continuer = false;
 }
