@@ -23,6 +23,10 @@ SerialTool::SerialTool(QWidget *parent) :
 
 
 }
+SerialTool::~SerialTool(){
+    
+    
+}
 
 void SerialTool::changeEvent(QEvent *e)
 {
@@ -40,7 +44,11 @@ void SerialTool::openPort(){
     /*Get actual configuration */
 
     QString portName = this->portBox->currentText();
+    if(this->port != NULL) {
+        std::cout << "Desallocation of previous configuration" << std::endl;
+        delete this->port;
 
+    }
     this->port = new QextSerialPort(portName,this->getConfiguration());
 
     if( port->open(QIODevice::ReadWrite) < 1){
@@ -80,7 +88,8 @@ void SerialTool::setTerminalText(QString text){
 }
 
 void SerialTool::closePort(){
-           this->openButton->setDisabled(false);
+
+    this->openButton->setDisabled(false);
             this->closeButton->setDisabled(true);
             this->Configuration(true);
 
@@ -91,10 +100,8 @@ void SerialTool::closePort(){
 
 
 
-delete this->port;
+
 }
-
-
 
 void SerialTool::UpdateTerminalMode(){
 
@@ -139,6 +146,7 @@ void SerialTool::writeCmd(){
 
 void SerialTool::closeEvent(QCloseEvent *event){
 if(port->isOpen())  this->closePort();
+
 }
 
 void SerialTool::RefreshPort(){

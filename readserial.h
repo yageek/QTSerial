@@ -12,7 +12,7 @@ protected:
     void run();
 public:
         ReadSerial();
-    ReadSerial(QextSerialPort *port,QObject *parent=0);
+        ReadSerial(QextSerialPort *port,QObject *parent=0);
      void setContinue(bool continuer);
         void Stop();
 signals:

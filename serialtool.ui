@@ -318,8 +318,8 @@
    <slot>writeCmd()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>103</x>
-     <y>250</y>
+     <x>113</x>
+     <y>397</y>
     </hint>
     <hint type="destinationlabel">
      <x>12</x>
@@ -350,8 +350,8 @@
    <slot>ClearTerm()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>498</x>
-     <y>33</y>
+     <x>529</x>
+     <y>34</y>
     </hint>
     <hint type="destinationlabel">
      <x>736</x>

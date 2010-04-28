@@ -10,6 +10,7 @@ class SerialTool : public QWidget, private Ui::SerialTool {
     Q_OBJECT
 public:
     SerialTool(QWidget *parent = 0);
+    ~SerialTool();
 public slots:
     void openPort();
     void closePort();
