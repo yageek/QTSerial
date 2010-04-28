@@ -20,7 +20,7 @@
    <iconset resource="icons.qrc">
     <normaloff>:/mainbar/icons/main.png</normaloff>:/mainbar/icons/main.png</iconset>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
@@ -74,13 +74,6 @@
        </property>
        <property name="checked">
         <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="hexRadio">
-       <property name="text">
-        <string>Hex</string>
        </property>
       </widget>
      </item>
@@ -271,14 +264,35 @@
     </layout>
    </item>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QPlainTextEdit" name="terminal"/>
      </item>
      <item>
-      <widget class="QLineEdit" name="commandEdit"/>
+      <widget class="QPlainTextEdit" name="hexplainText">
+       <property name="maximumSize">
+        <size>
+         <width>500</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
+       <property name="acceptDrops">
+        <bool>false</bool>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="commandEdit"/>
    </item>
   </layout>
  </widget>
@@ -293,7 +307,7 @@
    <slot>openPort()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>355</x>
+     <x>327</x>
      <y>36</y>
     </hint>
     <hint type="destinationlabel">
@@ -309,7 +323,7 @@
    <slot>closePort()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>470</x>
+     <x>424</x>
      <y>36</y>
     </hint>
     <hint type="destinationlabel">
@@ -357,7 +371,7 @@
    <slot>ClearTerm()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>529</x>
+     <x>452</x>
      <y>34</y>
     </hint>
     <hint type="destinationlabel">
@@ -373,8 +387,8 @@
    <slot>UpdateTerminalMode()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>583</x>
-     <y>17</y>
+     <x>549</x>
+     <y>29</y>
     </hint>
     <hint type="destinationlabel">
      <x>638</x>

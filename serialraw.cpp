@@ -21,7 +21,7 @@ void SerialRaw::insertData(QByteArray data){
         switch(data.at(i)){
 
             /*Backspace --> remove the last char in buff*/
-        case 0x08:this->buff->remove(this->buff->size()-1,1);break;
+        case 0x08:this->buff->chop(1);break;
         default:this->buff->append(data.at(i));break;
 
         }

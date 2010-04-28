@@ -94,33 +94,19 @@ void SerialTool::closePort(){
 
 }
 
-void SerialTool::UpdateTerminalMode(){
-
-    if((this->asciiRadio->isChecked()) || (this->terminalmodeRadio->isChecked())) this->terminal->setPlainText(this->serialraw->getResult());
-
-
-             else if(this->hexRadio->isChecked()){
-
-                     QString Hex;
-                     for (int i = 0; i < this->serialraw->getResult().size();i++){
-
-
-                         Hex.append(QString("0x%1   ").arg(this->serialraw->getResult().at(i).toAscii(),0,16));
-                         this->terminal->setPlainText(Hex);
-
-                     }
-
-
-}
-
-
-   }
 
 void SerialTool::printTerm(QByteArray data){
-this->serialraw->insertData(data);
+    /*Insert into hexadecimal view*/
+    this->hexplainText->insertPlainText(data.toHex());
 
-/*Set data received in the class argumen */
-   this->UpdateTerminalMode();
+    this->hexplainText->moveCursor(QTextCursor::End);
+    this->hexplainText->ensureCursorVisible();
+    /*Insert into ASCII view*/
+    this->serialraw->insertData(data);
+    this->terminal->setPlainText(this->serialraw->getResult());
+
+
+
    this->terminal->moveCursor(QTextCursor::End);
    this->terminal->ensureCursorVisible();
 

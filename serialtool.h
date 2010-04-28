@@ -20,7 +20,6 @@ public slots:
     void ClearTerm();
 
 
-    void UpdateTerminalMode();
     void Configuration(bool actived);
     PortSettings getConfiguration();
 
