@@ -115,6 +115,7 @@ void SerialTool::printTerm(QByteArray data){
 void SerialTool::writeCmd(){
     QString cmd = this->commandEdit->text();
     if(this->terminalmodeRadio->isChecked()) cmd.append('\n');
+    else if(this->hayesRadio->isChecked()) cmd.append('\r');
 
     mutex.lock();
     this->port->write(cmd.toAscii(),cmd.length());
