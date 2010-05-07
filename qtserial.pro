@@ -16,3 +16,4 @@ win32:LIBS += libqextserialport.dll
 unix:DEFINES = _TTY_POSIX_
 win32:DEFINES = _TTY_WIN_
 RESOURCES += icons.qrc
+TRANSLATIONS = qtserial_fr.ts qtserial_en.ts
