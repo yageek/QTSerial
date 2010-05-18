@@ -19,14 +19,52 @@ SerialTool::SerialTool(QWidget *parent) :
 
     //Refresh the list of ports
         this->RefreshPort();
-    //Initialise the terminal text
+
+
+        this->loadLastParam();
+
+
+
+
+
 
 
 
 
 }
+
+
+void SerialTool::saveParam(){
+    std::cout << tr("Enreg last parameters").toStdString() << std::endl;
+    QSettings params("qtserial");
+    params.beginGroup("last");
+    QHashIterator<QString,int> currentparam(this->getParameters());
+
+    while(currentparam.hasNext()){
+        currentparam.next();
+
+        params.setValue(currentparam.key(),currentparam.value());
+
+
+
+    }
+
+    //Save Last port USED
+    params.setValue("port",this->portBox->currentText());
+    //Save mode
+    if(this->asciiRadio->isChecked()) params.setValue("mode","ascii");
+    else if (this->terminalmodeRadio->isChecked()) params.setValue("mode","terminal");
+    else params.setValue("mode","hayes");
+
+
+    params.endGroup();
+}
+
 SerialTool::~SerialTool(){
+this->saveParam();
     
+
+
     
 }
 
@@ -124,7 +162,7 @@ void SerialTool::writeCmd(){
 }
 
 
-void SerialTool::closeEvent(QCloseEvent *event){
+void SerialTool::closeEvent(QCloseEvent*){
 if(port->isOpen())  this->closePort();
 
 }
@@ -220,3 +258,34 @@ PortSettings SerialTool::getConfiguration(){
 }
 
 
+QHash<QString,int> SerialTool::getParameters(){
+
+    QHash<QString,int> param;
+    /*Baudrate*/
+    param["baudrate"] = this->baudrateComboBox->currentIndex();
+    param["parity"] = this->parityComboBox->currentIndex();
+    param["data_bits"] = this->bitsCombobox->currentIndex();
+    param["stop_bits"] = this->stopbitsCombobox->currentIndex();
+    param["flow_control"] = this->flowcontrolComboBox->currentIndex();
+
+    return param;
+
+}
+void SerialTool::loadLastParam(){
+
+    QSettings params("qtserial");
+
+    this->baudrateComboBox->setCurrentIndex(params.value("last/baudrate").toInt());
+    this->parityComboBox->setCurrentIndex(params.value("last/parity").toInt());
+    this->bitsCombobox->setCurrentIndex(params.value("last/data_bits").toInt());
+    this->stopbitsCombobox->setCurrentIndex(params.value("last/stop_bits").toInt());
+   this->flowcontrolComboBox->setCurrentIndex(params.value("last/flow_control").toInt());
+
+    this->portBox->insertItem(0,params.value("port").toString());
+
+    QString mode = params.value("last/mode").toString();
+    if(mode.compare("ascii") == 0) this->asciiRadio->setChecked(true);
+    else if(mode.compare("terminal") == 0) this->terminalmodeRadio->setChecked(true);
+    else this->hayesRadio->setChecked(true);
+
+}
