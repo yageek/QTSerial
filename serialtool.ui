@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>789</width>
+    <width>813</width>
     <height>408</height>
    </rect>
   </property>
@@ -69,6 +69,9 @@
      </item>
      <item>
       <widget class="QRadioButton" name="asciiRadio">
+       <property name="toolTip">
+        <string>Send text in the line below</string>
+       </property>
        <property name="text">
         <string>ASCII</string>
        </property>
@@ -79,6 +82,9 @@
      </item>
      <item>
       <widget class="QRadioButton" name="terminalmodeRadio">
+       <property name="toolTip">
+        <string>Send text in the line below + carriage return (\n)</string>
+       </property>
        <property name="text">
         <string>Terminal mode</string>
        </property>
@@ -86,6 +92,9 @@
      </item>
      <item>
       <widget class="QRadioButton" name="hayesRadio">
+       <property name="toolTip">
+        <string>Send text in the line below + backspace (\r)</string>
+       </property>
        <property name="text">
         <string>Commandes Hayes</string>
        </property>
@@ -314,7 +323,7 @@
    <slot>openPort()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>327</x>
+     <x>321</x>
      <y>36</y>
     </hint>
     <hint type="destinationlabel">
@@ -330,7 +339,7 @@
    <slot>closePort()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>424</x>
+     <x>412</x>
      <y>36</y>
     </hint>
     <hint type="destinationlabel">
@@ -378,28 +387,12 @@
    <slot>ClearTerm()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>452</x>
+     <x>440</x>
      <y>34</y>
     </hint>
     <hint type="destinationlabel">
      <x>736</x>
      <y>44</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>asciiRadio</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>SerialTool</receiver>
-   <slot>UpdateTerminalMode()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>549</x>
-     <y>29</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>638</x>
-     <y>40</y>
     </hint>
    </hints>
   </connection>

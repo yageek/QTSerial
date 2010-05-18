@@ -35,154 +35,174 @@
     </message>
     <message>
         <location filename="serialtool.ui" line="73"/>
+        <source>Send text in the line below</source>
+        <translation>Envoie le texte de la ligne en bas</translation>
+    </message>
+    <message>
+        <location filename="serialtool.ui" line="76"/>
         <source>ASCII</source>
         <translation>ASCII</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="83"/>
+        <location filename="serialtool.ui" line="86"/>
+        <source>Send text in the line below + carriage return (\n)</source>
+        <translation>Envoie le texte de la ligne en bas + retour chariot(\n)</translation>
+    </message>
+    <message>
+        <location filename="serialtool.ui" line="89"/>
         <source>Terminal mode</source>
         <translation>Mode terminal</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="90"/>
+        <location filename="serialtool.ui" line="96"/>
+        <source>Send text in the line below + backspace (\r)</source>
+        <translation>Envoie le texte de la ligne en bas + retour arrière (\r)</translation>
+    </message>
+    <message>
+        <location filename="serialtool.ui" line="99"/>
         <source>Commandes Hayes</source>
         <translation>Commandes Hayes</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="101"/>
+        <location filename="serialtool.ui" line="110"/>
         <source>Baudrate</source>
         <translation>Baudrate</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="112"/>
+        <location filename="serialtool.ui" line="121"/>
         <source>9600</source>
         <translation>9600</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="117"/>
+        <location filename="serialtool.ui" line="126"/>
         <source>300</source>
         <translation>300</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="122"/>
+        <location filename="serialtool.ui" line="131"/>
         <source>600</source>
         <translation>600</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="127"/>
+        <location filename="serialtool.ui" line="136"/>
         <source>1200</source>
         <translation>1200</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="132"/>
+        <location filename="serialtool.ui" line="141"/>
         <source>2400</source>
         <translation>2400</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="137"/>
+        <location filename="serialtool.ui" line="146"/>
         <source>4800</source>
         <translation>4800</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="142"/>
+        <location filename="serialtool.ui" line="151"/>
         <source>19200</source>
         <translation>19200</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="147"/>
+        <location filename="serialtool.ui" line="156"/>
         <source>38400</source>
         <translation>38400</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="152"/>
+        <location filename="serialtool.ui" line="161"/>
         <source>57600</source>
         <translation>57600</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="157"/>
+        <location filename="serialtool.ui" line="166"/>
         <source>115200</source>
         <translation>115200</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="165"/>
+        <location filename="serialtool.ui" line="174"/>
         <source>Parity</source>
         <translation>Parité</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="173"/>
-        <location filename="serialtool.ui" line="251"/>
+        <location filename="serialtool.ui" line="182"/>
+        <location filename="serialtool.ui" line="260"/>
         <source>None</source>
         <translation>Aucune</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="178"/>
+        <location filename="serialtool.ui" line="187"/>
         <source>Even</source>
         <translation>Paire</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="183"/>
+        <location filename="serialtool.ui" line="192"/>
         <source>Odd</source>
         <translation>Impaire</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="191"/>
+        <location filename="serialtool.ui" line="200"/>
         <source>Bits</source>
         <translation>Bits</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="199"/>
+        <location filename="serialtool.ui" line="208"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="204"/>
+        <location filename="serialtool.ui" line="213"/>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="209"/>
+        <location filename="serialtool.ui" line="218"/>
         <source>6</source>
         <translation>6</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="214"/>
+        <location filename="serialtool.ui" line="223"/>
         <source>7</source>
         <translation>7</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="222"/>
+        <location filename="serialtool.ui" line="231"/>
         <source>Stopbits</source>
         <translation>Bits de stop</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="230"/>
+        <location filename="serialtool.ui" line="239"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="235"/>
+        <location filename="serialtool.ui" line="244"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="243"/>
+        <location filename="serialtool.ui" line="252"/>
         <source>Flow control</source>
         <translation>Contrôle de flux</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="256"/>
+        <location filename="serialtool.ui" line="265"/>
         <source>Hardware</source>
         <translation>Matériel</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="261"/>
+        <location filename="serialtool.ui" line="270"/>
         <source>Software</source>
         <translation>Logicielle</translation>
     </message>
     <message>
-        <location filename="serialtool.ui" line="266"/>
+        <location filename="serialtool.ui" line="275"/>
         <source>Space</source>
         <translation>Espace</translation>
+    </message>
+    <message>
+        <location filename="serialtool.cpp" line="38"/>
+        <source>Enreg last parameters</source>
+        <translation>Enregistre les derniers paramètres</translation>
     </message>
 </context>
 </TS>
