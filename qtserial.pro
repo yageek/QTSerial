@@ -1,7 +1,10 @@
 # -------------------------------------------------
 # Project created by QtCreator 2010-04-23T11:30:08
 # -------------------------------------------------
-TARGET = qtserial
+
+!mac:unix:TARGET = qtserial
+!mac:unix:target.path = /usr/bin
+!mac:unix:INSTALLS += target
 TEMPLATE = app
 SOURCES += main.cpp \
     serialtool.cpp \

@@ -187,6 +187,7 @@ QList<QextPortInfo> ports = QextSerialEnumerator::getPorts();
 void SerialTool::ClearTerm(){
     this->terminal->clear();
     this->serialraw->Clearbuffer();
+    this->hexplainText->clear();
 }
 
 
